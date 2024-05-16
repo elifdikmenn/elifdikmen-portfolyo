@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Elif Dikmen</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- TAILWINDCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            body {
+                background-color: rgb(8, 8, 8);
+                color: #ddd;
+                font-family: "Open Sans", sans-serif;
+            }
+            
+            .base {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar {
+                @apply fixed w-full left-0 top-0 z-[100] px-4 border border-neutral-800 backdrop-blur-lg transition-all duration-100 ease-out;
+            }
+            
+            .hoverGlow:hover {
+                transition: all 0.1s ease-out;
+                text-shadow: #ffffff 0px 0px 2px;
+            }
+            
+            .hoverGlowOrange:hover {
+                transition: all 0.1s ease-out;
+                text-shadow: #ead432 0px 0px 2px;
+                color: #efe6a0;
+            }
+            
+            .hoverGlowRed:hover {
+                transition: all 0.1s ease-out;
+                text-shadow: #f71537 0px 0px 2px;
+                color: #f5708d;
+            }
+            
+            .menu-links {
+                @apply text-3xl sm:text-6xl font-semibold uppercase tracking-wider text-left transition-all ease-in-out duration-100;
+            }
+
+            .card {
+                border-radius: 1rem;
+                padding: 0.5rem;
+                transition: box-shadow 0.3s ease;
+            }
+            
+            .card:hover {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        }
+      </style>
+</head>
+
+<body id="body">
+    <div class="base">
+        <div class="w-full max-w-3xl py-12">
+
+            <!-- Header -->
+            <header class="py-3 rounded navbar bg-neutral-900/70" id="header">
+                <div>
+                    <nav class="flex items-center justify-between">
+                        <div class="flex items-center gap-8">
+                            <button id="homeBtn" onclick="scrollToSection('body')" class="text-xl hoverGlow md:text-base"><i class="fa-solid fa-house"></i></button>
+                            <div class="items-center hidden gap-8 text-lg md:flex md:text-sm">
+                                <button id="projectsBtn" onclick="scrollToSection('projects')" class="hoverGlow">Projects</button>
+                                <button id="certificatesBtn" onclick="scrollToSection('certificates')" class="hoverGlow">Certificates</button>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 text-2xl md:text-lg item-center">
+                            <a href="https://www.linkedin.com/">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <div class="flex items-center gap-4">
+                                <div class="w-[1px] h-6 bg-neutral-400"></div>
+                                <button type="button" onclick="toggleMenu()">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Header Menu -->
+            <div id="menu" class="fixed top-0 left-0 w-full h-[100vh] bg-neutral-950 z-[1001]" style="display: none;">
+                <button onclick="toggleMenu()" class="absolute text-xl top-8 right-6">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+
+                <div class="flex flex-col items-center justify-center h-full gap-8 offCanvas">
+                    <button class="menu-links hover:text-white" onclick="scrollToSection('body')">Home</button>
+                    <button class="menu-links hover:text-green-500" onclick="scrollToSection('projects')">Projects</button>
+                    <button class="menu-links hover:text-purple-500" onclick="scrollToSection('certificates')">Certificates</button>
+                </div>
+            </div>
+
+            <!-- main -->
+            <div id="main" class="px-2">
+                <div class="grid grid-cols-1 gap-10 py-6">
+                    <div class="flex items-center gap-4 md:gap-6">
+                        <div class="flex items-center justify-center w-20 h-20 overflow-hidden rounded-xl sm:w-40 sm:h-40 bg-neutral-800">
+                            <i class="fa-solid fa-user text-4xl md:text-7xl"></i>
+                        </div>
+                        <div class="flex flex-col items-start gap-2">
+                            <div class="relative text-lg sm:text-[25px] z-[1]">
+                                <span class="">Elif Dikmen</span>
+                                <!-- <i class="absolute text-green-500 top-1 -right-8 fa-solid fa-circle-check"></i> -->
+                            </div>
+                            <span class="text-[13px] text-neutral-400">Software Developer</span>
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="text-sm text-justify sm:text-base">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="text-sm text-neutral-300">
+                            <span class="mr-1 font-semibold tracking-wide">Email:</span><span class="select-all">elifdikmen@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="py-4" id="projects">
+                    <div class="text-lg border-b border-neutral-400 text-neutral-400">
+                        <p>Projects</p>
+                    </div>
+                    <div id="projects-container" class="grid grid-cols-2 gap-2 mt-4 sm:grid-cols-3">
+
+                    </div>
+                </div>
+
+                <div class="py-4" id="certificates">
+                    <div class="text-lg border-b border-neutral-400 text-neutral-400">
+                        <p>Certificates</p>
+                    </div>
+                    <div id="certificates-container" class="grid grid-cols-2 gap-2 mt-4 sm:grid-cols-3">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="fixed bottom-0 left-0 flex justify-center w-full py-2 bg-neutral-900 backdrop-blur-lg">
+                <div class="flex items-center justify-between w-full max-w-3xl gap-2 px-6">
+                    <span>© Elif Dikmen - 2024</span>
+                    <a href="#" class="px-6 py-1 text-sm text-center rounded-full w-fit bg-gradient-to-r from-pink-500 to-purple-500 hover:hue-rotate-30 active:hue-rotate-60 hover:cursor-pointer">
+                        <span>Download CV</span>
+                        <i class="ml-2 fa-solid fa-download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Toggle menu
+        function toggleMenu() {
+            $('#menu').toggle();
+
+        }
+
+        // Function to scroll to section
+        function scrollToSection(sectionId) {
+            window.scrollTo({
+                top: document.getElementById(sectionId).offsetTop - 40,
+                behavior: "smooth"
+            })
+        }
+
+        // Projects
+        $(document).ready(function () {
+            // Placeholder for dynamic project data
+            const projects = [
+                {
+                    id: 1,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "job"]
+                },
+                {
+                    id: 2,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "job"]
+                },
+                {
+                    id: 3,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "job"]
+                },
+                {
+                    id: 4,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "job"]
+                },
+                {
+                    id: 5,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["paused", "personal"]
+                },
+                {
+                    id: 6,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "personal"]
+                },
+            ];
+
+            // Generate project HTML
+            projects.forEach(function (project) {
+                const projectHtml = `
+                    <a href="${project.url}" class="card">
+                        <div class="w-full h-40 rounded-lg bg-neutral-200/50 backdrop-blur-sm"></div>
+                        <div class="flex flex-col items-start gap-2 p-1 text-neutral-400">
+                            <span class="font-semibold text-neutral-200">
+                                <i class="text-blue-500 fa-solid fa-link"></i>
+                                ${project.title}
+                            </span>
+                            <div class="text-xs ">
+                                <span class="font-semibold text-neutral-300">Technologies: </span>
+                                <span>${project.technologies}</span>
+                            </div>
+                            <div class="text-xs ">
+                                <span class="font-semibold text-neutral-300">Description: </span>
+                                <span>${project.description}</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+                $('#projects-container').append(projectHtml);
+            });
+
+            // Placeholder for dynamic certificate data
+            const certificates = [
+                {
+                    id: 1,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "job"]
+                },
+                {
+                    id: 2,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "job"]
+                },
+                {
+                    id: 3,
+                    title: "Lorem Ipsum",
+                    technologies: "HTML",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    url: "#",
+                    img: "",
+                    tags: ["completed", "job"]
+                }
+            ];
+
+            // Generate certificate HTML
+            certificates.forEach(function (certificate) {
+                const certificateHtml = `
+                    <a href="${certificate.url}" class="card">
+                        <div class="w-full h-40 rounded-lg bg-neutral-200/50 backdrop-blur-sm"></div>
+                        <div class="flex flex-col items-start gap-2 p-1 text-neutral-400">
+                            <span class="font-semibold text-neutral-200">
+                                ${certificate.title}
+                            </span>
+                            <div class="text-xs ">
+                                <span>${certificate.description}</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+                $('#certificates-container').append(certificateHtml);
+            });
+        });
+    </script>
+</body>
+
+</html>
